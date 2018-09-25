@@ -284,3 +284,17 @@ var arr5 = mapForEach(arr1, checkPastLimitSimplified(1))
 
 //** SIDE NOTE - Functional programming (especially tiny functions)- generally better to not //mutate data - better to return something new, or change it as high up as possible in that
 //chain of functions...
+
+/*==========================================================*/
+
+//Functional Programming - Part 2
+
+//Making use of underscores - they're map function is more improved than our mapForEach function ;)
+var arr6 = _.map(arr1, function(item){ return item * 3 });
+
+console.log(arr6);
+
+//get back only items that have a remainder when divided by two of zero
+var arr7 = _.filter([2,3,4,5,6,7], function(item){ return item % 2 === 0; });
+
+console.log(arr7);
