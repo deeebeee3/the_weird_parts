@@ -289,7 +289,7 @@ var arr5 = mapForEach(arr1, checkPastLimitSimplified(1))
 
 //Functional Programming - Part 2
 
-//Making use of underscores - they're map function is more improved than our mapForEach function ;)
+//Making use of ripoffscore - they're map function is more improved than our mapForEach function ;)
 var arr6 = _.map(arr1, function(item){ return item * 3 });
 
 console.log(arr6);
@@ -298,3 +298,56 @@ console.log(arr6);
 var arr7 = _.filter([2,3,4,5,6,7], function(item){ return item % 2 === 0; });
 
 console.log(arr7);
+
+/*==========================================================*/
+
+//Classical vs Prototypal Inheritance
+
+//Classical - in C# / Java etc - been done for a long time. Very verbose. Loads of keywords - friend, protected, private, interface etc etc
+
+//Prototypal - used in js - flexible, extensible, easy to understand
+
+//Inheritance means one object gets access to the properties and methods of another object
+
+/*==========================================================*/
+
+//The Prototype / The prototype chain
+
+var person = {
+    firstname: 'Default',
+    lastname: 'Default',
+    getFullName: function(){
+        //this will refer to whatever object initiated the call
+        return this.firstname + ' ' + this.lastname;
+    }
+}
+
+var john = {
+    firstname: 'John',
+    lastname: 'Doe'
+}
+
+//Don't do this EVER!!! for demo purposes only!!! - don't directly access (get/set) an objects prototype
+//Can slow down the application and cause performance issues - even though modern browsers allow
+
+john.__proto__ = person; 
+
+//this will refer to whatever object initiated the call
+console.log(john.getFullName());
+
+//won't search the rest of prototype chain if found what looking for - that's why don't get 'Default'
+console.log(john.firstname);
+
+var jane = {
+    firstname: 'Jane'
+}
+
+jane.__proto__ = person;
+
+console.log(jane.getFullName()); //Jane Default...
+
+/*==========================================================*/
+
+
+
+
