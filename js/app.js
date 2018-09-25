@@ -258,9 +258,9 @@ console.log(arr3);
 
 //check and see if this item is past a certain limit
 //this function accepts 2 params - whereas mapForEach wants a function that accepts just one
-var checkPastLimit = mapForEach(arr1, function(limiter, item){
+var checkPastLimit = function(limiter, item){
     return item > limiter;
-});
+}
 
 //how to preset the limiter value... currying...
 //bind creates a copy of function - we don't want to change the context so leave it at this
