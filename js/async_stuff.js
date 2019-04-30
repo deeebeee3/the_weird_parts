@@ -78,7 +78,7 @@ Promise.all([promise1, promise2, promise3, promise4]).then((values) => {
 });
 
 
-//3. Async / Await ----------------------------------------------------
+//3a. Async / Await ----------------------------------------------------
 
 async function init(){
     await createPost({ title: "Third Post", body: "this is the third post" });
@@ -89,6 +89,25 @@ async function init(){
 }
 
 init();
+
+
+//3b. Async / Await (another example)-----------------------------------
+
+function resolveAfter2Seconds() {
+  return new Promise(resolve => {
+    setTimeout(() => {
+      resolve('resolved');
+    }, 2000);
+  });
+}
+
+async function asyncCall() {
+  console.log('calling');
+  var result = await resolveAfter2Seconds();
+  console.log(result);
+}
+
+asyncCall();
 
 
 //4. Async / Await / Fetch ------------------------------------------------
